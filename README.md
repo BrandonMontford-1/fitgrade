@@ -1,50 +1,164 @@
-# Welcome to your Expo app 👋
+# FitGrade — B2B Fitness SaaS
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A multi-role fitness performance tracking application for personal trainers, athletes, and coaches. Built and shipped to TestFlight in 7 days.
 
-## Get started
+![Platform](https://img.shields.io/badge/platform-iOS-blue)
+![Built With](https://img.shields.io/badge/built%20with-React%20Native%20%2B%20Expo-informational)
+![Backend](https://img.shields.io/badge/backend-Firebase-orange)
+![AI](https://img.shields.io/badge/AI-Claude%20API-purple)
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## Overview
 
-2. Start the app
+FitGrade gives personal trainers a real-time health dashboard for their clients. Trainers log session grades across five body regions, flag injuries, set targets, and generate AI-powered training plans. Athletes read their grades, view session history, and track progress. Coaches observe without editing.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Features
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**Trainer**
+- Client roster with health grade overview and roster health score
+- Session logging with body part grades (Head, Arm, Core, Leg, Foot)
+- Injury flagging with severity levels and notes
+- Target grade setting per body part
+- AI-powered 7-day training plan generation via Claude API
+- Quick log modal for fast grade updates
+- Audit log tracking every change made
+- Join code system to link athletes directly to their profile
+- Org system for multi-trainer organizations
+- Roster notes, competition countdown, active injury counter
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**Athlete**
+- Personal grade dashboard with body hologram
+- Session history and progress charts
+- Self-reporting mode (when enabled by trainer)
+- Coach notes visible in read-only view
 
-## Get a fresh project
+**Coach**
+- Read-only view of athlete grades
+- Observation notes sent to trainer and athlete
 
-When you're ready, run:
+**App**
+- Role-based access control (trainer / athlete / coach)
+- Three trainer modes: Personal Trainer, Physical Therapist, Parent/Youth Coach
+- Dark and light mode with persistence
+- Offline banner detection
+- Error boundary for crash protection
+- Skeleton loaders and toast notifications
+- Freemium model — 3 clients free, unlimited on Pro
+- Paywall with monthly and annual plans
 
-```bash
-npm run reset-project
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Mobile | React Native, Expo |
+| Auth | Firebase Authentication |
+| Database | Cloud Firestore |
+| Storage | Firebase Storage |
+| AI | Anthropic Claude API |
+| Build | EAS Build |
+| Local persistence | AsyncStorage |
+
+---
+
+## Architecture
+
+```
+fitgrade/
+├── App.js                      ← root navigation and auth state
+├── src/
+│   ├── screens/
+│   │   ├── TrainerHomeScreen.js
+│   │   ├── AthleteHomeScreen.js
+│   │   ├── ClientDetailScreen.js
+│   │   ├── LogSessionScreen.js
+│   │   ├── SessionHistoryScreen.js
+│   │   ├── AITrainingPlanScreen.js
+│   │   ├── ProfileSettingsScreen.js
+│   │   ├── PaywallScreen.js
+│   │   ├── OnboardingScreen.js
+│   │   ├── LoginScreen.js
+│   │   ├── SignupScreen.js
+│   │   ├── RoleSelectScreen.js
+│   │   ├── PrivacyPolicyScreen.js
+│   │   └── TermsOfServiceScreen.js
+│   ├── components/
+│   │   ├── BodyHologram.js     ← SVG body with tap regions
+│   │   ├── PartDetailSheet.js  ← grade history + exercises
+│   │   ├── ProgressChart.js    ← session trend charts
+│   │   ├── QuickLogModal.js
+│   │   ├── JoinCodeModal.js
+│   │   ├── SkeletonLoader.js
+│   │   ├── Toast.js
+│   │   ├── WelcomeTip.js
+│   │   └── ErrorBoundary.js
+│   ├── services/
+│   │   ├── firebaseService.js  ← all Firestore operations
+│   │   └── firebaseConfig.js
+│   └── ui/
+│       └── theme.js            ← palette, severity, grade utilities
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## Data Model
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+trainers/{uid}
+  ├── clients/{clientId}
+  │   ├── sessions/{sessionId}
+  │   ├── auditLog/{entryId}
+  │   └── coachNotes/{noteId}
+orgs/{orgId}
+joinCodes/{code}
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## Getting Started
 
-Join our community of developers creating universal apps.
+```bash
+git clone https://github.com/BrandonMontford-1/fitgrade
+cd fitgrade
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Create `src/services/aiConfig.js`:
+```js
+export const ANTHROPIC_API_KEY = 'your-key-here';
+```
+
+Create `src/services/firebaseConfig.js` with your Firebase project credentials.
+
+```bash
+npx expo start
+```
+
+---
+
+## REST API
+
+FitGrade has a companion REST API built with Node.js and Express.
+
+**Repo:** [fitgrade-api](https://github.com/BrandonMontford-1/fitgrade-api)
+**Live:** https://fitgrade-api-production.up.railway.app
+
+---
+
+## Status
+
+- TestFlight: Active (Build 6)
+- App Store: Pending submission
+- REST API: Live on Railway
+
+---
+
+## Author
+
+**Brandon Montford**
+- GitHub: [@BrandonMontford-1](https://github.com/BrandonMontford-1)
+- Email: br4ndonmontford@gmail.com
