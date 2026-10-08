@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — FitGrade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #A8FF3E; --black: #080A07; --surface: #0F1210;
+      --card: #141A14; --border: #1E2B1E; --text: #E8F5E0; --muted: #6A7D6A;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--text); }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--green); text-decoration: none; }
+    main { max-width: 720px; margin: 0 auto; padding: 80px 48px; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 56px; letter-spacing: 1px; margin-bottom: 8px; }
+    .updated { color: var(--muted); font-size: 13px; margin-bottom: 48px; }
+    .lead { color: var(--muted); font-size: 16px; line-height: 1.7; margin-bottom: 60px; font-weight: 300; }
+    h2 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; color: var(--text); }
+    p, li { font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 300; margin-bottom: 12px; }
+    ul { padding-left: 20px; }
+    a { color: var(--green); }
+    .faq-item { border-top: 1px solid var(--border); padding: 28px 0; }
+    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+    .faq-item p { margin-bottom: 0; }
+    .contact-box { margin-top: 64px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 40px; }
+    .contact-box h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; margin: 0 0 10px; }
+    .contact-box p { margin-bottom: 24px; }
+    .contact-box a { display: inline-block; background: var(--green); color: var(--black); padding: 12px 28px; border-radius: 6px; font-weight: 700; font-size: 15px; text-decoration: none; }
+    footer { text-align: center; padding: 40px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 80px; }
+    footer a { margin: 0 10px; }
+    @media (max-width: 640px) { nav, main { padding-left: 24px; padding-right: 24px; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">FITGRADE</a>
+</nav>
+<main>
+  <h1>PRIVACY POLICY</h1>
+  <p class="updated">Last updated: October 2026</p>
+
+  <p>FitGrade ("we," "our," or "us"), operated by B Plus Plus LLC, respects your privacy. This policy explains what we collect, how we use it, and the choices you have when you use the FitGrade mobile app.</p>
+
+  <h2>Information We Collect</h2>
+  <ul>
+    <li><strong>Account information:</strong> name, email address, and password. Passwords are handled by Firebase Authentication and are never stored in plain text.</li>
+    <li><strong>Profile data:</strong> your role (trainer, coach/parent, or athlete), sport or activity, goals, accent and display preferences, and an optional profile photo or logo.</li>
+    <li><strong>Training and health-related data you enter:</strong> body-part grades, targets, injury flags with severity and notes, session logs, and trainer or coach notes. This is information you or your trainer choose to record.</li>
+    <li><strong>Subscription status:</strong> whether your account has an active FitGrade Pro subscription. Payment details are handled by Apple and are never visible to us.</li>
+    <li><strong>Device and usage data:</strong> basic diagnostic information needed to keep the app working.</li>
+  </ul>
+
+  <h2>How We Use Your Information</h2>
+  <ul>
+    <li>To provide the FitGrade service: grades, session history, rosters, and linking athletes to trainers</li>
+    <li>To generate AI training plans and session-prep suggestions you request</li>
+    <li>To manage your subscription and unlock Pro features</li>
+    <li>To respond to support requests and keep the app secure and reliable</li>
+  </ul>
+
+  <h2>AI-Generated Plans</h2>
+  <p>When you generate an AI training plan or session prep, FitGrade sends the information needed for that request to Anthropic's Claude API: sport or activity, age, body-part grades, targets, injury flags and notes, and any trainer, coach, or athlete notes you typed. We do not send names or email addresses. Notes are free text, so please do not type personal identifiers into them. Anthropic processes the request to return a response and, under its API terms, does not use API inputs to train its models by default.</p>
+
+  <h2>Data Storage and Security</h2>
+  <p>Your data is stored with Google Firebase (Cloud Firestore, Authentication, and Cloud Storage for images). Data is encrypted in transit and at rest. Access to your data within the app is limited by your account and role.</p>
+
+  <h2>Third-Party Services</h2>
+  <ul>
+    <li><strong>Google Firebase</strong> — authentication, database, and image storage</li>
+    <li><strong>Anthropic</strong> — AI training plan and session-prep generation</li>
+    <li><strong>Apple</strong> — App Store billing and in-app purchases</li>
+  </ul>
+
+  <h2>Who Can See Your Data</h2>
+  <p>We do not sell your personal data. Within the app, a trainer can see the grades, sessions, and notes of athletes on their roster. An athlete links to a trainer by entering that trainer's code, and can choose to use FitGrade without a trainer. A coach or parent who adds an athlete using the athlete's code has read-only access to that athlete's data. Trainer-private notes are not shown to athletes.</p>
+
+  <h2>Deleting Your Account and Data</h2>
+  <p>You can delete your account at any time in the app under <strong>Profile &amp; Settings → Delete Account</strong>. Deleting your account removes your profile, rosters, sessions, notes, and uploaded images from our active systems and deletes your sign-in. Residual copies in backups are removed within 30 days. If you cannot access the app, email <a href="mailto:br4ndonmontford@gmail.com">br4ndonmontford@gmail.com</a> from your account email and we will delete it for you.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>FitGrade is not directed at children under 13 and we do not knowingly collect personal information from them. If you believe a child under 13 has created an account, contact us and we will delete it.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy from time to time. The date at the top shows when it last changed. Continued use of FitGrade after changes means you accept the updated policy.</p>
+
+  <h2>Contact Us</h2>
+  <p>Questions about this policy? Contact us at <a href="mailto:br4ndonmontford@gmail.com">br4ndonmontford@gmail.com</a>.</p>
+</main>
+<footer>
+  <a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a>
+  <p style="margin-top:16px;margin-bottom:0;">© 2026 FitGrade (B Plus Plus LLC). All rights reserved.</p>
+</footer>
+</body>
+</html>
